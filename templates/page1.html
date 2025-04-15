@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Page 1</title>
+  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> -->
+  <!-- шаблонный синтаксис Jinja2, который Flask использует в HTML-файлах -->
+  <link rel="stylesheet" href="D:\April\tracking_project\static\css\styles.css">
+
+</head>
+
+<body data-page="page1" data-site="site1">
+  <h1>Register (Page 1)</h1>
+  <form>
+    <label>Username:
+      <input type="text" name="username">
+    </label><br>
+    <label>Password:
+      <input type="password" name="password">
+    </label><br>
+    <label>Email:
+      <input type="email" name="email">
+    </label><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    const uid = new URLSearchParams(window.location.search).get('uid');
+  </script>
+  <!-- <script src="{{ url_for('static', filename='js/tracking.js') }}"></script> -->
+  <script src="D:\April\tracking_project\static\js\tracking.js"></script>
+</body>
+
+</html>
