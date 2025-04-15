@@ -27,7 +27,7 @@ def page2():
     return render_template("page2.html")
 
 
-@app.route("/track", methods=["POST"])
+@app.route("https://tracing-project.com/", methods=["POST"])
 def track():
     data = request.get_json()
     db = get_db()

@@ -75,7 +75,7 @@ window.addEventListener('beforeunload', () => {
 
 // Функция отправки события на сервер
 function sendEvent(data) {
-    fetch('/track', {
+    fetch('https://tracing-project.com/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
