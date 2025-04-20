@@ -34,7 +34,7 @@ def track():
 
     db.execute(
         """
-        INSERT INTO user_action (
+        INSERT INTO user_actions (
             user_id, site, page, event_type, timestamp,
             x, y, scroll_position, field_name, input_value
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)

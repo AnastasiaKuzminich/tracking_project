@@ -8,7 +8,7 @@ cursor.execute(
     user_id TEXT,
     event_type TEXT,
     timestamp TEXT,
-    site	TEXT
+    site TEXT,
     page TEXT,
     x INTEGER,
     y INTEGER,

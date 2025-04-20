@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход в интернет-банк</title>
+    <link rel="stylesheet" href="D:\April\tracking_project\static\css\style_3.2.css">
+</head>
+<body>
+    <header class="header">
+        <img src="https://www.mpos.by/upload/iblock/bcf/bcfd1dceab4cc63e126ccd047c7e76ce.svg" alt="Paritetbank Логотип" class="logo">
+        <a href="#" class="nav-link active">Вход</a>
+    </header>
+    <div class="notification">
+        <p><strong>Уважаемые клиенты!</strong><br>
+        Сообщаем Вам об обновлении наименований нашей линейки онлайн-депозитов.<br>
+        Но условия по ним остались прежними – такими же выгодными и удобными для Вас!<br>
+        Спасибо, что выбираете нас!<br><br>
+        В связи с проведением регламентных работ будет недоступен Интернет банкинг и Мобильный банкинг.<br><br>
+        Приносим извинения за возможные неудобства.
+        </p>
+    </div>
+    <div class="login-box">
+        <h2>Вход в eParitet</h2>
+        <form>
+            <label for="login">Логин</label>
+            <input type="text" id="login" name="login">
+
+            <label for="password">Пароль</label>
+            <div class="password-wrapper">
+                <input type="password" id="password" name="password">
+                <span class="toggle-password">👁</span>
+            </div>
+
+            <a href="#" class="forgot-password">Забыли пароль?</a>
+
+            <button type="submit">Войти</button>
+            <button type="button" class="ecdsa-login">Войти по ЭЦП</button>
+        </form>
+    </div>
+</body>
+</html>

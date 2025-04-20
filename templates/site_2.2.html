@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Интернет-банкинг</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="D:\April\tracking_project\static\css\style_2.2.css" />
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="header">
+            <img src="https://habrastorage.org/getpro/moikrug/uploads/company/182/396/355/logo/medium_0445ca8922e8e7acdaebac8dc614898d.jpg"
+                alt="Логотип" />
+            <div class="header-text">
+                <h1>ИНТЕРНЕТ-БАНКИНГ</h1>
+                <p>ОАО "АСБ Беларусбанк"</p>
+            </div>
+        </div>
+
+        <form class="login-form">
+            <div class="input-wrapper">
+                <i class="fa fa-user icon"></i>
+                <input type="text" placeholder="Логин" required />
+            </div>
+
+            <div class="input-wrapper">
+                <i class="fa fa-key icon"></i>
+                <input type="password" placeholder="Пароль" required />
+                <i class="fa fa-eye-slash eye-icon"></i>
+            </div>
+
+            <button type="submit" class="login-btn">Войти</button>
+
+            <div class="radio-group">
+                <label><input type="radio" name="auth" checked /> Код с карты кодов</label>
+                <label><input type="radio" name="auth" /> Одноразовый СМС-код</label>
+            </div>
+
+            <div class="links">
+                <a href="#">Забыли пароль?</a>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

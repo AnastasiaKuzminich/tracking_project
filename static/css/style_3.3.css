@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8fafa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to right, #c3fbff, #6cc4ff);
+    
+}
+.bg{
+    background: url("https://pw.artfile.me/wallpaper/15-07-2017/650x434/priroda-reki-ozera-les-reka-1192982.jpg") no-repeat center center/cover;
+    opacity : 0.6;
+}
+.header {
+    width: 100%;
+    max-width: 900px;
+    margin-left: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    box-sizing: border-box;
+}
+
+.logo {
+    height: 70px;
+    /* увеличен размер логотипа */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+    border-bottom: 2px solid #0077cc;
+}
+
+.notification {
+    background-color: #eef3f7;
+    border-bottom: 1px solid #ccc;
+    padding: 20px;
+    font-size: 14px;
+    max-width: 700px;
+    margin-top: 10px;
+}
+
+.login-box {
+    background-color: white;
+    padding: 30px 40px;
+    margin-top: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    border-radius: 8px;
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 35%;
+    cursor: pointer;
+}
+
+.forgot-password {
+    display: block;
+    margin-top: 10px;
+    font-size: 12px;
+    text-align: right;
+    text-decoration: none;
+    color: #0066cc;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border: none;
+    background-color: #0066cc;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.ecdsa-login {
+    background-color: #e0e0e0;
+    color: black;
+}

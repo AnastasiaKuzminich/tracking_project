@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Registration Page 1</title>
-  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
   <!-- шаблонный синтаксис Jinja2, который Flask использует в HTML-файлах -->
-  <link rel="stylesheet" href="D:\April\tracking_project\static\css\styles.css">
+  <!-- <link rel="stylesheet" href="D:\April\tracking_project\static\css\styles.css"> -->
 
 </head>
 
@@ -28,8 +28,8 @@
   <script>
     const uid = new URLSearchParams(window.location.search).get('uid');
   </script>
-  <!-- <script src="{{ url_for('static', filename='js/tracking.js') }}"></script> -->
-  <script src="D:\April\tracking_project\static\js\tracking.js"></script>
+  <script src="{{ url_for('static', filename='js/tracking.js') }}"></script>
+  <!-- <script src="D:\April\tracking_project\static\js\tracking.js"></script> -->
 </body>
 
 </html>

