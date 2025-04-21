@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="D:\April\tracking_project\static\css\style_9.1.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_9.1.css') }}">
+
     <title>Boost Media Group</title>
 </head>
 
@@ -35,15 +36,16 @@
 
         <p>Оставьте заявку, и мы свяжемся с вами в ближайшее время:</p>
 
-        <form action="#" method="post">
+        <form action="#" action="/site_9.1" method="get">
+            <input type="hidden" name="id" value="{{ request.args.get('id') }}">
             <label for="name">Имя</label>
-            <input type="text" id="name" name="name" required>
+            <input class="имя" type="text" id="name" name="name" required>
 
             <label for="email">Электронная почта</label>
-            <input type="email" id="email" name="email" required>
+            <input class="электронная почта" type="email" id="email" name="email" required>
 
             <label for="company">Компания / Проект</label>
-            <input type="text" id="company" name="company">
+            <input class="компания" type="text" id="company" name="company">
 
             <label for="message">Кратко о Вас или интересующие подробности сотрудничества</label>
             <textarea id="message" name="message" rows="4"></textarea>
@@ -55,7 +57,7 @@
     <footer>
         Boost Media Group, 2025
     </footer>
-
+    <script src="{{ url_for('static', filename='js/track_example_2.js') }}"></script>
 </body>
 
 </html>

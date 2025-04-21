@@ -71,7 +71,7 @@ input[type="password"] {
     gap: 8px;
 }
 
-.login-btn {
+.stop {
     background-color: #21a038;
     color: white;
     border: none;
@@ -83,7 +83,7 @@ input[type="password"] {
     margin-top: 1.2rem;
 }
 
-.forgot {
+.stop_s {
     display: block;
     text-align: center;
     margin-top: 1rem;

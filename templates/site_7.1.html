@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Обновление информации об аккаунте</title>
-    <link rel="stylesheet" href="D:\April\tracking_project\static\css\style_7.1.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_7.1.css') }}">
+
 </head>
 
 <body>
@@ -17,15 +18,16 @@
             <div class="avatar-section">
                 <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
                     alt="Аватар" class="avatar-img" id="avatarPreview">
-                <button type="button" class="btn-secondary">Изменить фото</button>
+                <label>Изменить фото</label>
             </div>
-            <form class="form-section">
-                <label>Имя <input type="text" name="firstName"></label>
-                <label>Фамилия <input type="text" name="lastName"></label>
-                <label>Никнейм <input type="text" name="nickname"></label>
+            <form class="form-section" action="/site_7.1" method="get">
+                <input type="hidden" name="id" value="{{ request.args.get('id') }}">
+                <label>Имя <input class="имя" type="text" name="firstName"></label>
+                <label>Фамилия <input class="фамилия" type="text" name="lastName"></label>
+                <label>Никнейм <input class="никнейм" type="text" name="nickname"></label>
                 <label>Дата рождения
                     <div class="dob">
-                        <select name="День">
+                        <select class="день рождения" name="День">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -58,7 +60,7 @@
                             <option>30</option>
                             <option>31</option>
                         </select>
-                        <select name="Месяц">
+                        <select name="Месяц" class="месяц рождения">
                             <option>Январь</option>
                             <option>Февраль</option>
                             <option>Март</option>
@@ -72,7 +74,7 @@
                             <option>Ноябрь</option>
                             <option>Декабрь</option>
                         </select>
-                        <select name="Год">
+                        <select name="Год" class="год рождения">
                             <option>1900</option>
                             <option>1901</option>
                             <option>1902</option>
@@ -204,12 +206,12 @@
                 </label>
                 <label>Пол:
                     <div class="gender">
-                        <label><input type="radio" name="gender"> Женский</label>
-                        <label><input type="radio" name="gender"> Мужской</label>
+                        <label><input class="пол женский" type="radio" name="gender"> Женский</label>
+                        <label><input class="пол мужской" type="radio" name="gender"> Мужской</label>
                     </div>
                 </label>
-                <label>Страна проживания<input type="text" name="city"></label>
-                <label class="lbl-country"><input type="checkbox"> Хочу получать информационные рассылки</label>
+                <label>Страна проживания<input class="страна проживания" type="text" name="city"></label>
+                <label class="lbl-country"><input class="хочу получать информационные рассылки" type="checkbox"> Хочу получать информационные рассылки</label>
 
                 <div class="buttons">
                     <button type="submit" class="btn-primary">Сохранить</button>
@@ -218,7 +220,7 @@
             </form>
         </div>
     </div>
-
+    <script src="{{ url_for('static', filename='js/track_example_2.js') }}"></script>
 </body>
 
 </html>

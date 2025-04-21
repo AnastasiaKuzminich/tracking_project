@@ -16,24 +16,24 @@
         <p>Введите номер телефона или логин и пароль, которые вы устанавливали при регистрации</p>
 
         <form action="/site_1" method="get">
-            <input type="hidden" name="id" value="{{ request.args.get('id') }}">
+            <input type="hidden" name="id" value="{{ request.args.get('id') }}" >
             <label for="login">Номер телефона или логин</label>
-            <input type="text" id="login" name="login" required />
+            <input class="логин" type="text" id="login" name="login" required />
 
             <label for="password">Пароль</label>
             <div class="password-container">
-                <input type="password" id="password" name="password" required />
+                <input class="пароль" type="password" id="password" name="password" required />
                 <span class="toggle-password">👁️</span>
             </div>
 
             <label class="checkbox">
-                <input type="checkbox" name="foreign-device" />
+                <input class="вход с чужого устройства" type="checkbox" name="foreign-device" />
                 Вход с чужого устройства
             </label>
 
-            <button type="submit" class="login-btn">Войти</button>
+            <button type="submit" class="stop">Войти</button>
 
-            <a href="#" class="forgot">Не помню логин или пароль</a>
+            <a href="#" class="stop_s">Не помню логин или пароль</a>
         </form>
     </div>
 

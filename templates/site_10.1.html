@@ -3,7 +3,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MetLife - Медицинское страхование</title>
-    <link href="D:\April\tracking_project\static\css\style_10.1.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_10.1.css') }}">
+
     <style>
         
     </style>
@@ -16,7 +17,8 @@
             </div>
             <h1>Медицинское страхование от MetLife</h1>
         </div>
-        <div class="content">
+        <form class="content" action="/site_10.1" method="get">
+            <input type="hidden" name="id" value="{{ request.args.get('id') }}">
             <p>Добро пожаловать! Компания <strong>MetLife</strong> рада предложить уникальные условия по медицинскому страхованию для сотрудников вашей компании.</p>
             <p>Наши преимущества:</p>
             <ul>
@@ -26,11 +28,12 @@
                 <li>Индивидуальный подход к каждому клиенту.</li>
             </ul>
             <p>Заполните форму ниже, чтобы зарегистрироваться и получить больше информации:</p><form action="#" method="post">
-            <input type="text" name="name" placeholder="Ваше имя" required>
-            <input type="email" name="email" placeholder="Email" required>
+            <input class="имя" type="text" name="name" placeholder="Ваше имя" required>
+            <input class="почта" type="email" name="email" placeholder="Email" required>
             <button type="submit">Отправить заявку</button>
         </form>
     </div>
 </div>
+<script src="{{ url_for('static', filename='js/track_example_2.js') }}"></script>
 </body>
 </html>

