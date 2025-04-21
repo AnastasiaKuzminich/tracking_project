@@ -5,6 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("Отсутствует operationId в URL");
         return;
     }
+    function getCurrentTimestamp() {
+        // ISO-совместимое локальное время по Минску
+        const now = new Date();
+        const localTime = now.toLocaleString("sv-SE", { timeZone: "Europe/Minsk" }).replace(" ", "T");
+        return localTime;
+    }
 
     let trackingStopped = localStorage.getItem("trackingStopped_" + operationId) === "true";
     console.log("Tracking started. Tracking stopped:", trackingStopped);
