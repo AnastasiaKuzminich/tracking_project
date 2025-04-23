@@ -150,7 +150,6 @@ def init_db():
         )
 
 
-
 init_db()
 
 
@@ -177,12 +176,20 @@ def track_visit():
             )
             with connect_my_emails_2() as conn2:
                 cursor = conn2.cursor()
-            
                 cursor.execute(
-                    "UPDATE registration SET entry_date = ?, entry_time = ? WHERE sending_id = ?",
-                    (date, time, operation_id),
+                    "SELECT 1 FROM registration WHERE sending_id = ? LIMIT 1",
+                    (operation_id,),
                 )
-            
+                result = cursor.fetchone()
+
+                if result:
+                    print("Значение найдено!")
+                    cursor.execute(
+                        "UPDATE registration SET entry_date = ?, entry_time = ? WHERE sending_id = ?",
+                        (date, time, operation_id),
+                    )
+                else:
+                    print("Значение не найдено.")
 
             print("Сохранили в general_oper:", operation_id, timestamp)
         return jsonify({"status": "visit tracked"})
@@ -197,7 +204,6 @@ def track_click():
     operation_id = data["operation_id"]
     timestamp_str = data["timestamp"]
     timestamp = datetime.fromisoformat(timestamp_str.replace("Z", ""))
-    
 
     date_iso = timestamp.date().isoformat()
     time_iso = timestamp.time().strftime("%H:%M:%S")
@@ -216,13 +222,21 @@ def track_click():
         button_click_time = cursor.fetchone()
 
         if button_click_time and button_click_time["button_click_time"]:
-    
+
             return jsonify({"status": "ignored"}), 200
 
         cursor.execute(
             """INSERT INTO clicks (operation_id, click_date, click_time, click_x, click_y, site_width, site_height) 
                         VALUES (?, ?, ?, ?, ?, ?, ?)""",
-            (operation_id, date_iso, time_iso, click_x, click_y, site_width, site_height),
+            (
+                operation_id,
+                date_iso,
+                time_iso,
+                click_x,
+                click_y,
+                site_width,
+                site_height,
+            ),
         )
     print("Сохраняем клик")
 
@@ -252,7 +266,7 @@ def track_input():
         button_click_time = cursor.fetchone()
 
         if button_click_time and button_click_time["button_click_time"]:
-            
+
             return jsonify({"status": "ignored"}), 200
 
         cursor.execute(
@@ -260,7 +274,7 @@ def track_input():
                         VALUES (?, ?, ?, ?, ?)""",
             (operation_id, date_iso, time_iso, input_class, input_value),
         )
-    
+
     print("Сохраняем ввод")
 
     return jsonify({"status": "success"}), 200
@@ -283,12 +297,13 @@ def track_button_click():
         cursor = conn1.cursor()
 
         cursor.execute(
-            "SELECT button_type FROM general_oper WHERE operation_id = ?", (operation_id,)
+            "SELECT button_type FROM general_oper WHERE operation_id = ?",
+            (operation_id,),
         )
         row = cursor.fetchone()
 
         if row and row["button_type"]:
-        
+
             return jsonify({"stop_tracking": True})  # уже кликали — стоп
 
         # первый клик — сохраняем
@@ -309,7 +324,6 @@ def track_button_click():
             (operation_id, date_iso, time_iso),
         )
 
-
     with connect_my_emails_2() as conn2:
         cursor = conn2.cursor()
         cursor.execute(
@@ -320,7 +334,6 @@ def track_button_click():
         """,
             (date_iso, time_iso, operation_id),
         )
-    
 
     return jsonify({"stop_tracking": True})
 

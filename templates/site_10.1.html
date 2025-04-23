@@ -4,12 +4,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MetLife - Медицинское страхование</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style_10.1.css') }}">
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pop_up_style.css') }}">
     <style>
         
     </style>
 </head>
 <body>
+    <!-- Модальное окно -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Упс!</h2>
+            <p>Похоже, вы могли бы попасть в ловушку мошенников, если бы ваше начальство не инициализировало эту проверку!.</p>
+        </div>
+    </div>
     <div class="container">
         <div class="header-form">
             <div class="logo">
@@ -30,10 +38,11 @@
             <p>Заполните форму ниже, чтобы зарегистрироваться и получить больше информации:</p><form action="#" method="post">
             <input class="имя" type="text" name="name" placeholder="Ваше имя" required>
             <input class="почта" type="email" name="email" placeholder="Email" required>
-            <button type="submit">Отправить заявку</button>
+            <button type="submit" id="openModalBtn">Отправить заявку</button>
         </form>
     </div>
 </div>
 <script src="{{ url_for('static', filename='js/track_example_2.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pop_up.js') }}"></script>
 </body>
 </html>

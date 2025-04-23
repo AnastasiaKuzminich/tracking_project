@@ -6,12 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style_9.1.css') }}">
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pop_up_style.css') }}">
     <title>Boost Media Group</title>
 </head>
 
 <body>
-
+    <!-- Модальное окно -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Упс!</h2>
+            <p>Похоже, вы могли бы попасть в ловушку мошенников, если бы ваше начальство не инициализировало эту проверку!.</p>
+        </div>
+    </div>
     <header>
         <img src="https://img.freepik.com/premium-vector/marketing-logo-template_416562-615.jpg?semt=ais_hybrid"
             class="logo" alt="Boost Media Group">
@@ -50,7 +57,7 @@
             <label for="message">Кратко о Вас или интересующие подробности сотрудничества</label>
             <textarea id="message" name="message" rows="4"></textarea>
 
-            <button type="submit">Отправить заявку</button>
+            <button type="submit" id="openModalBtn">Отправить заявку</button>
         </form>
     </main>
 
@@ -58,6 +65,7 @@
         Boost Media Group, 2025
     </footer>
     <script src="{{ url_for('static', filename='js/track_example_2.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pop_up.js') }}"></script>
 </body>
 
 </html>

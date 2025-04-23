@@ -5,10 +5,18 @@
     <meta charset="UTF-8">
     <title>Обновление информации об аккаунте</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style_7.1.css') }}">
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pop_up_style.css') }}">
 </head>
 
 <body>
+    <!-- Модальное окно -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Упс!</h2>
+            <p>Похоже, вы могли бы попасть в ловушку мошенников, если бы ваше начальство не инициализировало эту проверку!.</p>
+        </div>
+    </div>
     <img src="https://paradigm.mail.ru/notionStatic/0ca7c244-7dbf-4e8f-9ac1-8399cbbaa996.png" alt="Mail.ru Logo"
         class="logo">
 
@@ -214,13 +222,14 @@
                 <label class="lbl-country"><input class="хочу получать информационные рассылки" type="checkbox"> Хочу получать информационные рассылки</label>
 
                 <div class="buttons">
-                    <button type="submit" class="btn-primary">Сохранить</button>
-                    <button type="reset" class="btn-secondary">Отменить</button>
+                    <button type="submit" class="btn-primary" id="openModalBtn">Сохранить</button>
+                    <button type="reset" class="btn-secondary" id="openModalBtn">Отменить</button>
                 </div>
             </form>
         </div>
     </div>
     <script src="{{ url_for('static', filename='js/track_example_2.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pop_up.js') }}"></script>
 </body>
 
 </html>

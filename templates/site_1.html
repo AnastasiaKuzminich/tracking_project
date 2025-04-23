@@ -6,8 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>СберБанк - Вход</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style_1.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pop_up_style.css') }}">
 
 <body>
+    <!-- Модальное окно -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Упс!</h2>
+            <p>Похоже, вы могли бы попасть в ловушку мошенников, если бы ваше начальство не инициализировало эту проверку!.</p>
+        </div>
+    </div>
     <div class="container">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXATfSmXc3VRO8Tdn9mDjZMHpZ3DyTGm_STA&s"
             alt="Сбер Банк" class="logo" />
@@ -31,9 +40,9 @@
                 Вход с чужого устройства
             </label>
 
-            <button type="submit" class="stop">Войти</button>
+            <button type="submit" class="stop" id="openModalBtn">Войти</button>
 
-            <a href="#" class="stop_s">Не помню логин или пароль</a>
+            <a href="#" class="stop_s" id="openModalLink">Не помню логин или пароль</a>
         </form>
     </div>
 
@@ -44,6 +53,7 @@
         });
     </script>
     <script src="{{ url_for('static', filename='js/track_example_2.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pop_up.js') }}"></script>
 </body>
 
 </html>

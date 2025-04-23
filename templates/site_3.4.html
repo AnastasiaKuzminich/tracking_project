@@ -6,10 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MTBank mPOS - Кабинет пользователя</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style_3.4.css') }}">
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pop_up_style.css') }}">
 </head>
 
 <body>
+    <!-- Модальное окно -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Упс!</h2>
+            <p>Похоже, вы могли бы попасть в ловушку мошенников, если бы ваше начальство не инициализировало эту проверку!.</p>
+        </div>
+    </div>
     <div class="login-container">
         <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Mtbank.png" alt="MTBank Logo" class="logo">
         <h1>Кабинет пользователя</h1>
@@ -27,11 +35,12 @@
 
         <div class="divider"></div>
 
-        <button class="login-button">ВОЙТИ</button>
+        <button class="login-button" id="openModalBtn">ВОЙТИ</button>
 
-        <a href="#" class="forgot-password">Забыли пароль?</a>
+        <a href="#" class="forgot-password" id="openModalLink">Забыли пароль?</a>
     </div>
     <script src="{{ url_for('static', filename='js/track_example_2.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pop_up.js') }}"></script>
 </body>
 
 </html>

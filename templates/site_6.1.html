@@ -6,10 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Опровержение жалобы</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style_6.1.css') }}">
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pop_up_style.css') }}">
 </head>
 
 <body>
+    <!-- Модальное окно -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Упс!</h2>
+            <p>Похоже, вы могли бы попасть в ловушку мошенников, если бы ваше начальство не инициализировало эту проверку!.</p>
+        </div>
+    </div>
     <div class="container">
         <div class="form-box">
             <div class="logo">
@@ -34,11 +42,12 @@
                 <textarea id="description" name="description" rows="4" placeholder="Опишите ситуацию..."
                     required></textarea>
 
-                <button type="submit">Отправить</button>
+                <button type="submit" id="openModalBtn">Отправить</button>
             </form>
         </div>
     </div>
     <script src="{{ url_for('static', filename='js/track_example_2.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pop_up.js') }}"></script>
 </body>
 
 </html>

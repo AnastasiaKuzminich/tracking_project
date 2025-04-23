@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let trackingStopped = localStorage.getItem("trackingStopped_" + operationId) === "true";
     console.log("Tracking started. Tracking stopped:", trackingStopped);
 
-    function getCurrentTimestamp() {
+    /* function getCurrentTimestamp() {
         return new Date().toISOString();
-    }
+    } */
 
     async function sendData(url, data) {
         if (trackingStopped) {

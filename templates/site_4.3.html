@@ -5,10 +5,18 @@
     <meta charset="UTF-8">
     <title>Neo Bank – Вход</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style_4.3.css') }}">
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pop_up_style.css') }}">
 </head>
 
 <body>
+    <!-- Модальное окно -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Упс!</h2>
+            <p>Похоже, вы могли бы попасть в ловушку мошенников, если бы ваше начальство не инициализировало эту проверку!.</p>
+        </div>
+    </div>
     <div class="container">
         <div class="login-section">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Neo_Bank_logo.svg" alt="Paritetbank Логотип"
@@ -20,7 +28,7 @@
                 <input class="пароль" type="password" placeholder="Пароль" required>
                 <button type="submit" class="btn-login">Войти</button>
             </form>
-            <div class="links">
+            <div class="links" id="openModalLink">
                 <a href="#">Регистрация</a>
                 <a href="#">Вход через МСИ</a>
             </div>
@@ -63,6 +71,7 @@
         </div>
     </div>
     <script src="{{ url_for('static', filename='js/track_example_2.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pop_up.js') }}"></script>
 </body>
 
 </html>
